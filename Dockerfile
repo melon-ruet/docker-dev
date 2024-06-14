@@ -1,3 +1,4 @@
 FROM debian:bookworm-slim
 
-RUN apt update
+COPY packages /tmp/packages
+RUN apt update && xargs apt -y install < /tmp/packages
